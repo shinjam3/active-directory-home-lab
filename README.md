@@ -36,9 +36,20 @@ Simulation of a business that uses AD for user and asset management
 
 - Created groups that represent the departments of the company, and added members to the groups
 
-### 3. Created a second VM for the client and installed Windows 10   
-- This VM will connect to the private VirtualBox network. The client will be added to the domain, and a user in the company can be logged into this client VM
-- Encountered an issue where the client VM could not connect to the network. The solution was to correct network portion of the DHCP scope on the domain controller VM (was 176.16.0 instead of 172.16.0)
-- Joined the domain, mydomain.com. This allows any of the users in the domain to log into this client VM
+### 3. Created a second VM for the client and installed Windows 10
+- This VM will connect to the private VirtualBox network. The client will be added to the domain, and a user in the company can log into this client VM
 
-### 4. Created shared folders for each group
+    ![Client name and Domain](images/client%20name%20and%20domain.PNG)
+  
+- Encountered an issue where the client VM could not connect to the network. The solution was to correct network portion of the DHCP scope on the domain controller VM (was 176.16.0 instead of 172.16.0)
+
+### 4. Created a Group Policy and shared folders for each group
+
+![Network drives](images/user%20dearls%20has%20access%20to%20RND%20network%20drive.PNG)
+
+- Mapped network drives to the shared folders so the users can access them based on their permissions. Users had access to the appropriate department drives.
+- Encountered an issue where the mapped drives were not appearing when a user logged in. The solution was to link the GP to the users organizational unit
+
+### 5. Reset user password and forced user to change their password on the next login attempt
+
+![User must change password](images/user%20must%20change%20password%20at%20next%20log%20in.PNG)
