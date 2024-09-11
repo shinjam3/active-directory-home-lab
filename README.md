@@ -13,15 +13,18 @@ Simulation of a business that uses AD for user and asset management
 
 2. Created a virtual machine for the domain controller
     - Allocated megabytes for the RAM and hard disk drive, allocated cores for the CPU
+    - Installed Active Directory Domain Services
     - Configured 2 network adapters
         - One is dedicated to the internet and is using Network Address Translation. Uses DHCP from host machine's home router
         - The other is dedicated to the internal virtual network that the client VM can connect to. Manually configured the IP address, Subnet mask, DNS server
 
     ![Internal network configurations](images/internal%20network%20configurations.PNG)
    
-    - Installed Active Directory Domain Services
-    - Configured Remote Access Server and NAT so the client on the private virtual network can access the internet through the domain controller
-        - NAT allows internal clients to connect to the internet using one public IP address
+    - Configured Routing and Remote Access Server so the client on the private virtual network can access the internet through the domain controller
+        - Uses NAT to allow internal clients to connect to the internet using one public IP address
+
+    ![Remote Access Server](images/RAS.PNG)
+
     - Configured DHCP and DNS server on the domain controller, so the client virtual machine can automatically obtain an IP address, and connect to the internet
         - Configured DHCP scope, lease duration, default gateway (domain controller’s IP address), DNS server (domain controller’s IP address)
     - Ran a powershell script that will automatically create 200 users in Active Directory
