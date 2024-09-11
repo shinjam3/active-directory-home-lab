@@ -2,11 +2,13 @@
 
 Simulation of a business that uses AD for user and asset management
 
+Based on the following tutorial: https://youtu.be/MHsI8hJmggI?si=P_DYXP1N4BqW2kII
+
 ![Active Directory](images/Active%20Directory.PNG)
 
 ---
 
-### 1. Installed VirtualBox to create Client and Domain Controller virtual machines
+### 1. Installed Oracle VirtualBox to create Client and Domain Controller virtual machines
 ![VirtualBox](images/VirtualBox.png)
 - Downloaded Windows Server 2019 ISO as the OS for the Domain Controller that contains an AD server, on the virtual machine
 - Downloaded Windows 10 ISO as the OS for the client that will connect to the domain
